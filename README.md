@@ -77,3 +77,12 @@ affected source tables before making final business conclusions.
    them only if those indexes do not already exist.
 5. Save screenshots of the actual query outputs in `screenshots/`.
 
+## Dataset
+
+The Olist Brazilian E-Commerce dataset contains
+9 CSV files used for this SQL analysis project.
+
+Due to the large file sizes, the datasets are
+stored in Google Drive.
+
+[Click here to access the datasets](https://drive.google.com/drive/folders/1Fw9rl30FhZ-E1Kel-DZA8mqBhZGpYKiB?usp=sharing)
