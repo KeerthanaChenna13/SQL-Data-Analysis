@@ -149,43 +149,9 @@ RIGHT JOIN orders o
     ON c.customer_id = o.customer_id
 LIMIT 20;
 
--- Join order items with product details
-SELECT
-    oi.order_id,
-    oi.product_id,
-    p.product_category_name,
-    oi.price
-FROM order_items oi
-INNER JOIN products p
-    ON oi.product_id = p.product_id
-LIMIT 20;
-
--- Category-level order count and merchandise revenue
-SELECT
-    ct.product_category_name_english,
-    COUNT(DISTINCT oi.order_id) AS total_orders,
-    SUM(oi.price) AS total_revenue
-FROM order_items oi
-INNER JOIN products p
-    ON oi.product_id = p.product_id
-INNER JOIN category_translation ct
-    ON p.product_category_name = ct.product_category_name
-GROUP BY ct.product_category_name_english
-ORDER BY total_revenue DESC;
-
 -- ------------------------------------------------------------
 -- 6. SUBQUERIES
 -- ------------------------------------------------------------
-
--- Order items priced above the average item price
-SELECT product_id, price
-FROM order_items
-WHERE price > (
-    SELECT AVG(price)
-    FROM order_items
-)
-ORDER BY price DESC
-LIMIT 20;
 
 -- Customers whose IDs occur in the orders table (IN)
 SELECT customer_id, customer_city, customer_state
